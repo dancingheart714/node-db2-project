@@ -1,4 +1,5 @@
 //vin, make, model, mileage, transmission type, status of title
+
 exports.up = async function (knex) {
   await knex.schema.table('cars', (table) => {
     table.increments('car_id');
@@ -6,8 +7,8 @@ exports.up = async function (knex) {
     table.text('car_make').notNullable();
     table.text('car_model').notNullable();
     table.integer('car_mileage').notNullable();
-    table.text('transmission');
-    table.text('title');
+    table.text('transmission_type');
+    table.text('status_of_title');
   });
 };
 

@@ -11,9 +11,12 @@ const getById = (id) => {
 };
 
 //newly created car record
-const create = async (car) => {
-  const [id] = await db('cars').insert(car);
-  return getById(id);
+const create = (car) => {
+  return db('cars')
+    .insert(car)
+    .then((id) => {
+      return getById(id[0]);
+    });
 };
 
 module.exports = {

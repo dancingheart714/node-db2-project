@@ -1,15 +1,18 @@
-const checkCarId = (req, res, next) => {
-  // DO YOUR MAGIC
-}
+const Car = require('./cars-model');
+const db = require('../../data/db-config');
 
-const checkCarPayload = (req, res, next) => {
+exports.checkCarId = (req, res, next) => {
   // DO YOUR MAGIC
-}
+};
 
-const checkVinNumberValid = (req, res, next) => {
+exports.checkCarPayload = (req, res, next) => {
   // DO YOUR MAGIC
-}
+};
 
-const checkVinNumberUnique = (req, res, next) => {
+exports.checkVinNumberValid = (req, res, next) => {
   // DO YOUR MAGIC
-}
+};
+
+exports.checkVinNumberUnique = (req, res, next) => {
+  // DO YOUR MAGIC
+};

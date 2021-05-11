@@ -1,16 +1,13 @@
 const db = require('../../data/db-config');
 
-//select * from cars
 const getAll = () => {
-  return db('cars');
+  return db.select('*').from('cars');
 };
 
-//select * from cars where id = 1
 const getById = (id) => {
-  return db('cars').where('id', id).first();
+  return db('cars').where({ id }).first();
 };
 
-//newly created car record
 const create = (car) => {
   return db('cars')
     .insert(car)
@@ -19,8 +16,13 @@ const create = (car) => {
     });
 };
 
+const getVinNumber = (vin) => {
+  return db('cars').where({ vin }).first();
+};
+
 module.exports = {
   getAll,
   getById,
   create,
+  getVinNumber,
 };

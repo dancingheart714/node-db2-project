@@ -1,14 +1,14 @@
-//vin, make, model, mileage, transmission type, status of title
+// DO YOUR MAGIC
 
 exports.up = async function (knex) {
-  await knex.schema.table('cars', (table) => {
-    table.increments('car_id');
-    table.text('car_vin').unique.notNullable();
-    table.text('car_make').notNullable();
-    table.text('car_model').notNullable();
-    table.integer('car_mileage').notNullable();
-    table.text('transmission_type');
-    table.text('status_of_title');
+  await knex.schema.createTable('cars', (table) => {
+    table.increments('id');
+    table.text('vin').notNull().unique();
+    table.text('make').notNull();
+    table.text('model').notNull();
+    table.integer('mileage').notNull();
+    table.text('title');
+    table.text('transmission');
   });
 };
 

@@ -5,7 +5,6 @@ const checkCarId = (req, res, next) => {
   const id = req.params.id;
   Cars.getById(id)
     .then((car) => {
-      console.log(id);
       if (!car) {
         res.status(404).json({
           message: `car with id ${id} is not found`,
@@ -59,7 +58,6 @@ const checkVinNumberValid = (req, res, next) => {
 const checkVinNumberUnique = (req, res, next) => {
   const vin = req.body.vin;
   Cars.getVinNumber(vin).then((car) => {
-    console.log(vin);
     if (!car) {
       next();
     } else {

@@ -8,7 +8,6 @@ const {
   checkVinNumberUnique,
 } = require('./cars-middleware');
 
-// [GET] '/api/cars'
 router.get('/', (req, res, next) => {
   Cars.getAll()
     .then((cars) => {
@@ -16,7 +15,7 @@ router.get('/', (req, res, next) => {
     })
     .catch(next);
 });
-// [GET] '/api/cars/:id'
+
 router.get('/:id', checkCarId, (req, res, next) => {
   Cars.getById(req.params.id)
     .then((car) => {
@@ -26,7 +25,7 @@ router.get('/:id', checkCarId, (req, res, next) => {
       next(err);
     });
 });
-// [POST] '/api/cars'
+
 router.post(
   '/',
   checkCarPayload,
